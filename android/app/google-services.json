@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "726435208417",
+    "project_id": "testgih-d7512",
+    "storage_bucket": "testgih-d7512.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726435208417:android:5c5481a9b7d08006f9aba0",
+        "android_client_info": {
+          "package_name": "com.example.testgih"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_Nn8owaW1y2os96imWLe0sn-2lFM2jDQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
