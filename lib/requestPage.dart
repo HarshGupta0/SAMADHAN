@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class CreateRequestPage extends StatefulWidget {
@@ -12,20 +11,13 @@ class _CreateRequestPageState extends State<CreateRequestPage> {
 
   void _submitRequest() async {
     if (_controller.text.isEmpty) return;
-
-    User? user = FirebaseAuth.instance.currentUser;
-    if (user != null) {
-      await FirebaseFirestore.instance.collection('requests').add({
-        'content': _controller.text,
-        'userId': user.uid,
-        'timestamp': FieldValue.serverTimestamp(),
-      });
-      _controller.clear();
-      Navigator.of(context).pop();
-    } else {
-      // Handle the case when the user is not signed in
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('You must be logged in to create a request.')));
-    }
+    await FirebaseFirestore.instance.collection('requests').add({
+      'content': _controller.text,
+      'userId': 'exampleUserId', // Replace with actual user ID
+      'timestamp': FieldValue.serverTimestamp(),
+    });
+    _controller.clear();
+    Navigator.of(context).pop();
   }
 
   @override
