@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:testgih/requestPage.dart';
-
-import 'RequestPageList.dart';
+import 'package:testgih/userRequest.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Home')),
+      appBar: AppBar(
+        title: Text('Home'),
+      ),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: <Widget>[
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
+                Navigator.push(
+                  context,
                   MaterialPageRoute(builder: (context) => CreateRequestPage()),
                 );
               },
@@ -21,11 +23,12 @@ class HomePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(builder: (context) => RequestListPage()),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UserRequestsPage()),
                 );
               },
-              child: Text('View Requests'),
+              child: Text('My Requests'),
             ),
           ],
         ),
