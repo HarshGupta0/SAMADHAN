@@ -54,13 +54,13 @@ class NavScreen extends StatelessWidget {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.home),
         title: 'Home',
-        activeColorPrimary: Color(0xFFB3B1D3),
+        activeColorPrimary:Colors.purple.shade400.withOpacity(.4),
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.category_outlined),
         title: 'Category',
-        activeColorPrimary:Color(0xFFB3B1D3),
+        activeColorPrimary:Colors.purple.shade400.withOpacity(.4),
         inactiveColorPrimary: Colors.white,
       ),
       // PersistentBottomNavBarItem(
@@ -72,7 +72,7 @@ class NavScreen extends StatelessWidget {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.settings_outlined),
         title: 'Profile',
-        activeColorPrimary:Color(0xFFB3B1D3),
+        activeColorPrimary:Colors.purple.shade400.withOpacity(.4),
         inactiveColorPrimary: Colors.white,
       ),
     ];

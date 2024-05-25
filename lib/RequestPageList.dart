@@ -9,7 +9,7 @@ class RequestListPage extends StatelessWidget {
       appBar: AppBar(
         title: Text('Requests'),
         centerTitle: true,
-        backgroundColor: Colors.teal,
+        backgroundColor: Color(0xFFB3B1D3),
       ),
       body: StreamBuilder(
         stream: FirebaseFirestore.instance
