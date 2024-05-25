@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:testgih/Login.dart';
 
 class first extends StatefulWidget {
   const first({super.key});
@@ -23,23 +24,31 @@ class _firstState extends State<first> {
           Column(
             children: [
               SizedBox(
-                height: 100,
+                height: 80,
               ),
               Container(
-                  child:Text("SAMADHAN", style: TextStyle(fontFamily: 'Roboto Sheriff', fontSize: 45),)
+                  child:Text("SAMADHAN", style: TextStyle(fontFamily: 'Roboto Sheriff', fontSize: 45, fontWeight: FontWeight.bold),)
               ),
-              SizedBox(
-                height: 200,
-              ),
+              Expanded(child: SizedBox(
+              ),),
               ElevatedButton(
                 onPressed: () {
-
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context)=> LoginView()
+                      )
+                  );
                 },
                 style: ElevatedButton.styleFrom(
+                  padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   backgroundColor: Colors.white
                 ),
                 child: Text('Get Started', style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold, fontSize: 20),),
               ),
+              SizedBox(
+                height: 70,
+              )
             ],
           )
         ],

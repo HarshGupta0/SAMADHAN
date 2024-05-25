@@ -22,6 +22,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:testgih/Signup.dart';
+import 'package:testgih/front.dart';
 import 'package:testgih/widgets/CustomButtom.dart';
 import 'package:testgih/widgets/CustomTextFeild.dart';
 
@@ -58,7 +59,7 @@ class AuthWrapper extends StatelessWidget {
         } else if (snapshot.hasData) {
           return HomePage();
         } else {
-          return LoginView();
+          return first();
         }
       },
     );
