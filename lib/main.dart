@@ -21,6 +21,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:testgih/Signup.dart';
 import 'package:testgih/widgets/CustomButtom.dart';
 import 'package:testgih/widgets/CustomTextFeild.dart';
 
@@ -154,7 +155,12 @@ class _LoginViewState extends State<LoginView> {
                               ),
                               TextButton(
                                 onPressed: () {
-                                  // Get.to(() => SignUpView());
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context)=> SignUpView()
+                                      )
+                                  );
                                 },
                                 child: Text(
                                   "New User!!",
