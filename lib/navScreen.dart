@@ -3,17 +3,19 @@ import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 
 import 'MyrequestScreen.dart';
 import 'ProfileScreen.dart';
+import 'RequestPageList.dart';
 import 'alllRequestsPage.dart';
 class NavScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return PersistentTabView(
       context,
       controller: PersistentTabController(initialIndex: 0),
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: Colors.lightBlue.shade200,
+      backgroundColor: Color(0xFFB3B1D3),
       handleAndroidBackButtonPress: true,
       resizeToAvoidBottomInset: true,
       stateManagement: true,
@@ -41,9 +43,9 @@ class NavScreen extends StatelessWidget {
 
   List<Widget> _buildScreens() {
     return [
-      allRequestpage(),
+      RequestListPage(),
       MyrequestScreen(),
-      ProfileScreen(),
+      SettingsView(),
     ];
   }
 
@@ -52,13 +54,13 @@ class NavScreen extends StatelessWidget {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.home),
         title: 'Home',
-        activeColorPrimary: Colors.blue,
+        activeColorPrimary: Color(0xFFB3B1D3),
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
         icon: Icon(Icons.category_outlined),
         title: 'Category',
-        activeColorPrimary: Colors.blue,
+        activeColorPrimary:Color(0xFFB3B1D3),
         inactiveColorPrimary: Colors.white,
       ),
       // PersistentBottomNavBarItem(
@@ -70,7 +72,7 @@ class NavScreen extends StatelessWidget {
       PersistentBottomNavBarItem(
         icon: Icon(Icons.settings_outlined),
         title: 'Profile',
-        activeColorPrimary: Colors.blue,
+        activeColorPrimary:Color(0xFFB3B1D3),
         inactiveColorPrimary: Colors.white,
       ),
     ];

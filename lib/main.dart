@@ -21,14 +21,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:testgih/Signup.dart';
 import 'package:testgih/front.dart';
-import 'package:testgih/widgets/CustomButtom.dart';
-import 'package:testgih/widgets/CustomTextFeild.dart';
-
-import 'HomePage.dart';
-import 'Login.dart';
-import 'firebase_functions.dart';
+import 'navScreen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -39,6 +33,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Request App',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -57,7 +52,7 @@ class AuthWrapper extends StatelessWidget {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Center(child: CircularProgressIndicator());
         } else if (snapshot.hasData) {
-          return HomePage();
+          return NavScreen();
         } else {
           return first();
         }
