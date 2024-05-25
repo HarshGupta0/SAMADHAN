@@ -45,7 +45,7 @@ class _LoginViewState extends State<LoginView> {
                   height: 100,
                 ),
                 Container(
-                    child:Text("SAMADHAN")
+                    child:Text("SAMADHAN", style: TextStyle(fontFamily: 'Roboto Sheriff', fontSize: 45),)
                 ),
                 SizedBox(
                   height: 30,
@@ -62,7 +62,7 @@ class _LoginViewState extends State<LoginView> {
                             child: Text(
                               "Login Here",
                               style: TextStyle(
-                                  color: Colors.black45,
+                                  color: Colors.black,
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold),
                             ),
@@ -72,7 +72,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           Container(
                             padding: EdgeInsets.only(left: 20),
-                            child: Text("Email"),
+                            child: Text("Email", style: TextStyle(fontWeight: FontWeight.bold),),
                           ),
                           CustomTextField(
                             hintText: "",
@@ -81,7 +81,7 @@ class _LoginViewState extends State<LoginView> {
                           ),
                           Container(
                             padding: EdgeInsets.only(left: 20),
-                            child: Text("Password"),
+                            child: Text("Password", style: TextStyle(fontWeight: FontWeight.bold),),
                           ),
                           CustomTextField(
                             hintText: "",
@@ -95,7 +95,7 @@ class _LoginViewState extends State<LoginView> {
                                 onPressed: () {},
                                 child: Text(
                                   "Forget Password?",
-                                  style: TextStyle(fontSize: 16, color: Colors.blue, decoration: TextDecoration.underline, decorationColor: Colors.blue),
+                                  style: TextStyle(fontSize: 16, color: Color(0xFF0E0AD1), decoration: TextDecoration.underline, decorationColor: Color(0xFF0E0AD1)),
                                 ),
                               ),
                               TextButton(
@@ -109,7 +109,7 @@ class _LoginViewState extends State<LoginView> {
                                 },
                                 child: Text(
                                   "Create Account",
-                                  style: TextStyle(fontSize: 16, color: Colors.blue, decoration: TextDecoration.underline, decorationColor: Colors.blue),
+                                  style: TextStyle(fontSize: 16, color: Color(0xFF0E0AD1), decoration: TextDecoration.underline, decorationColor: Color(0xFF0E0AD1)),
                                 ),
                               ),
                             ],

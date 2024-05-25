@@ -23,37 +23,46 @@ class _SignUpViewState extends State<SignUpView> {
       child: Scaffold(
         body: Container(
           height: MediaQuery.of(context).size.height,
-          color: Colors.lightBlue.shade200,
+          color: Color(0xFFB3B1D3),
           child: SingleChildScrollView(
             child: Column(
               children: [
-                Container(
-                  height: MediaQuery.of(context).size.height / 2 * .8,
-                  // child: Container(
-                  //   child: LottieBuilder.asset(
-                  //     "assets/lottie/lottie2.json",
-                  //     width: MediaQuery.of(context).size.width,
-                  //   ),
-                  // ),
-                ),
+
                 Container(
                   child: SingleChildScrollView(
                     child: Form(
                       key: _formKey, // Assigned the form key
                       child: Column(
                         children: [
+                          SizedBox(
+                            height: 40,
+                          ),
+                          Container(
+                              child:Text("SAMADHAN", style: TextStyle(fontFamily: 'Roboto Sheriff', fontSize: 45),)
+                          ),
+                          SizedBox(
+                            height: 20,
+                          ),
                           Center(
                             child: Text(
-                              " Welcome ",
+                              " Create an Account ",
                               style: TextStyle(
                                 color: Colors.black45,
-                                fontSize: 32,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text("Name", style: TextStyle(fontWeight: FontWeight.bold),),
+                          ),
                           CustomTextField(
-                            hintText: "lolll",
+                            hintText: "",
                             isPassword: false,
                             textEditingController: nameController,
                             validator: (value) {
@@ -63,8 +72,13 @@ class _SignUpViewState extends State<SignUpView> {
                               return null;
                             },
                           ),
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text("Email", style: TextStyle(fontWeight: FontWeight.bold),),
+                          ),
                           CustomTextField(
-                            hintText: 'Enter email',
+                            hintText: '',
                             isPassword: false,
                             textEditingController: emailController,
                             validator: (value) {
@@ -77,8 +91,14 @@ class _SignUpViewState extends State<SignUpView> {
                               return null;
                             },
                           ),
+
+                          Container(
+                            alignment: Alignment.centerLeft,
+                            padding: EdgeInsets.only(left: 20),
+                            child: Text("Password", style: TextStyle(fontWeight: FontWeight.bold),),
+                          ),
                           CustomTextField(
-                            hintText: "Password",
+                            hintText: "",
                             isPassword: true,
                             textEditingController: passwordController,
                             validator: (value) {
@@ -91,9 +111,14 @@ class _SignUpViewState extends State<SignUpView> {
                               return null;
                             },
                           ),
+                          Container(
+                            padding: EdgeInsets.only(left: 20),
+                            alignment: Alignment.centerLeft,
+                            child: Text("Confirm Password", style: TextStyle(fontWeight: FontWeight.bold),),
+                          ),
                           CustomTextField(
                             textEditingController: passwordController,
-                            hintText: "Confirm password",
+                            hintText: "",
                             isPassword: true,
                             validator: (value) {
                               if (value!= passwordController.text) {
@@ -118,15 +143,28 @@ class _SignUpViewState extends State<SignUpView> {
                             alignment: Alignment.bottomLeft,
                             child: Row(
                               children: [
-                                Text("already have Acc!!"),
+                                SizedBox(
+                                  width: 20,
+                                ),
+                                Text("Already have Account", style: TextStyle(fontSize: 20),),
                                 TextButton(
                                   onPressed: () {
                                     Navigator.pop(context);
                                   },
-                                  child: Text("Login"),
+                                  child: Text("Login", style: TextStyle(fontSize: 20),),
                                 ),
                               ],
                             ),
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                "image/Vector.png",
+                                height: 250,
+                                width: 250,
+                              )
+                            ],
                           ),
                         ],
                       ),

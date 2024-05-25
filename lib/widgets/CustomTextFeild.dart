@@ -23,7 +23,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(0),
       margin: EdgeInsets.only(left: 5, right: 5, bottom: 5),
       child: Container(
         decoration: BoxDecoration(

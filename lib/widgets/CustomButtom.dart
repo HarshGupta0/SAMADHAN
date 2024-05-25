@@ -18,7 +18,7 @@ class _CustomButtonState extends State<CustomButton> {
     return Center(
       child: ElevatedButton(
         style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.all(Colors.blue), // Set the background color
+          backgroundColor: MaterialStateProperty.all(Color(0xFF0E0AD1)), // Set the background color
           fixedSize: MaterialStateProperty.all(Size(MediaQuery.of(context).size.width/3, 40)), // Set the width and height
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
