@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:testgih/widgets/CustomButtom.dart';
 import 'package:testgih/widgets/CustomTextFeild.dart';
@@ -133,6 +134,7 @@ class _SignUpViewState extends State<SignUpView> {
                                 createUserWithEmailAndPassword(
                                   emailController.text,
                                   passwordController.text,
+                                  nameController.text,
                                   context,
                                 );
                               }

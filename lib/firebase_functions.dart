@@ -1,4 +1,5 @@
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -7,13 +8,19 @@ import 'HomePage.dart';
 import 'Login.dart';
 import 'main.dart';
 
-createUserWithEmailAndPassword(String emailAddress, String password, BuildContext context) async {
+final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+createUserWithEmailAndPassword(String emailAddress, String password, String name, BuildContext context) async {
   try {
     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: emailAddress,
       password: password,
     );
     User? user = credential.user;
+    await _firestore.collection('users').doc(credential.user?.uid).set({
+      'name': name.trim(),
+      'email': emailAddress.trim(),
+    });
     if (user != null) {
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
       MySnackbar(context, "User Registered", Colors.green);
