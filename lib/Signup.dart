@@ -14,6 +14,7 @@ class _SignUpViewState extends State<SignUpView> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController nameController = TextEditingController(); // Changed variable name
+  TextEditingController numberController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>(); // Added form key
 
@@ -67,6 +68,22 @@ class _SignUpViewState extends State<SignUpView> {
                             textEditingController: nameController,
                             validator: (value) {
                               if (value!.isEmpty) {
+                                return 'Please enter your name';
+                              }
+                              return null;
+                            },
+                          ),
+                          Container(
+                            padding: EdgeInsets.only(left: 20),
+                            alignment: Alignment.centerLeft,
+                            child: Text("Enter number", style: TextStyle(fontWeight: FontWeight.bold),),
+                          ),
+                          CustomTextField(
+                            hintText: "",
+                            isPassword: false,
+                            textEditingController: numberController,
+                            validator: (value) {
+                              if (value!.isEmpty || value.length<8) {
                                 return 'Please enter your name';
                               }
                               return null;
@@ -133,7 +150,9 @@ class _SignUpViewState extends State<SignUpView> {
                                 createUserWithEmailAndPassword(
                                   emailController.text,
                                   passwordController.text,
-                                  context,
+                                  nameController.text,
+                                  numberController.text,
+                                  context
                                 );
                               }
                             },

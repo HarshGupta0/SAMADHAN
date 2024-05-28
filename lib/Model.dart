@@ -1,15 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Request {
-  String id;
-  String content;
-  String userId;
-  Timestamp timestamp;
+  final String id;
+  final String content;
+  final String userId;
+  final Timestamp? timestamp;
 
-  Request({required this.id, required this.content, required this.userId, required this.timestamp});
+  Request({required this.id, required this.content, required this.userId, this.timestamp});
 
   factory Request.fromFirestore(DocumentSnapshot doc) {
-    Map data = doc.data() as Map;
+    Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
     return Request(
       id: doc.id,
       content: data['content'] ?? '',
@@ -18,11 +18,13 @@ class Request {
     );
   }
 
-  Map<String, dynamic> toMap() {
-    return {
-      'content': content,
-      'userId': userId,
-      'timestamp': timestamp,
-    };
+  Stream<List<Map<String, dynamic>>> getResponses() {
+    return FirebaseFirestore.instance
+        .collection('requests')
+        .doc(id)
+        .collection('responses')
+        .orderBy('timestamp', descending: true)
+        .snapshots()
+        .map((snapshot) => snapshot.docs.map((doc) => doc.data()).toList());
   }
 }

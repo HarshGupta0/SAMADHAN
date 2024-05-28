@@ -1,21 +1,36 @@
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import 'HomePage.dart';
 import 'Login.dart';
-import 'main.dart';
+import 'navScreen.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-createUserWithEmailAndPassword(String emailAddress, String password, BuildContext context) async {
+void createUserWithEmailAndPassword(String emailAddress, String password, String name, String phoneNumber, BuildContext context) async {
   try {
+    // Create user with email and password
     final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
       email: emailAddress,
       password: password,
     );
+
+    // Get the created user
     User? user = credential.user;
+
     if (user != null) {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+      // Store user data in Firestore
+      await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+        'name': name,
+        'email': emailAddress,
+        'phoneNumber': phoneNumber,
+        'userId': user.uid,
+        'createdAt': FieldValue.serverTimestamp(),
+        // Add any other user information here
+      });
+
+      // Navigate to the main screen
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavScreen()));
+
+      // Show success message
       MySnackbar(context, "User Registered", Colors.green);
     } else {
       // Handle other cases here if needed
@@ -55,7 +70,7 @@ signInWithEmailAndPassword(String emailAddress, String password, BuildContext co
     User? user = credential.user;
     if (user != null) {
       // _saveUserUid(user.uid);
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => NavScreen()));
       MySnackbar(context, "Login Successfully", Colors.green);
     } else {
       // Handle other cases here if needed

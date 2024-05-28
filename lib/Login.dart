@@ -19,17 +19,7 @@ class _LoginViewState extends State<LoginView> {
   void initState() {
     super.initState();
     // Check for user persistence on app start
-    // checkUserPersistence();
   }
-
-  // Function to check if the user is already logged in
-  // void checkUserPersistence() async {
-  //   String? uid = await _getUserUid();
-  //   if (uid != null && uid.isNotEmpty) {
-  //     // User is already logged in, navigate to HomeView
-  //     Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomeView()));
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {

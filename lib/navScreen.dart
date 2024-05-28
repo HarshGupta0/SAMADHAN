@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-
-import 'MyrequestScreen.dart';
+import 'Core_features/RecievedResponds.dart';
+import 'Core_features/userOwnRequests.dart';
 import 'ProfileScreen.dart';
-import 'RequestPageList.dart';
-import 'alllRequestsPage.dart';
+import 'Core_features/RequestPageList.dart';
 class NavScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -28,11 +27,11 @@ class NavScreen extends StatelessWidget {
           )
       ),
       popAllScreensOnTapOfSelectedTab: true,
-      itemAnimationProperties: ItemAnimationProperties(
-        duration: Duration(milliseconds: 200),
+      itemAnimationProperties:const ItemAnimationProperties(
+        duration:const Duration(milliseconds: 200),
         curve: Curves.ease,
       ),
-      screenTransitionAnimation: ScreenTransitionAnimation(
+      screenTransitionAnimation: const ScreenTransitionAnimation(
         animateTabTransition: true,
         curve: Curves.ease,
         duration: Duration(milliseconds: 200),
@@ -44,33 +43,36 @@ class NavScreen extends StatelessWidget {
   List<Widget> _buildScreens() {
     return [
       RequestListPage(),
-      MyrequestScreen(),
+      UserOwnRequests(),
+      RecievedResponds(),
       SettingsView(),
+      // RequestDetailsPage(request:null,),
     ];
   }
 
   List<PersistentBottomNavBarItem> _navBarsItems() {
     return [
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.home),
+        icon: const Icon(Icons.home),
         title: 'Home',
         activeColorPrimary:Colors.purple.shade400.withOpacity(.4),
         inactiveColorPrimary: Colors.white,
       ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.category_outlined),
-        title: 'Category',
+        icon:const Icon(Icons.person),
+        title: 'My Request',
         activeColorPrimary:Colors.purple.shade400.withOpacity(.4),
         inactiveColorPrimary: Colors.white,
       ),
-      // PersistentBottomNavBarItem(
-      //   icon: Icon(Icons.person_outline),
-      //   title: 'Doctor',
-      //   activeColorPrimary: Colors.blue,
-      //   inactiveColorPrimary: Colors.white,
-      // ),
       PersistentBottomNavBarItem(
-        icon: Icon(Icons.settings_outlined),
+        icon: Icon(Icons.message),
+        title: 'message',
+        activeColorPrimary:Colors.purple.shade400.withOpacity(.4),
+        inactiveColorPrimary: Colors.white,
+      ),
+
+      PersistentBottomNavBarItem(
+        icon: const Icon(Icons.settings_outlined),
         title: 'Profile',
         activeColorPrimary:Colors.purple.shade400.withOpacity(.4),
         inactiveColorPrimary: Colors.white,
